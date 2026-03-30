@@ -5,8 +5,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const newChatBtn = document.getElementById('new-chat-btn');
     const chatListContainer = document.getElementById('chat-list');
     const titleEle = document.getElementById('current-chat-title');
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
 
     let currentChatId = null;
+
+    if (menuBtn && sidebar && sidebarOverlay) {
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.add('open');
+            sidebarOverlay.classList.add('show');
+        });
+        sidebarOverlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('show');
+        });
+    }
+
+    function closeSidebarOnMobile() {
+        if (window.innerWidth <= 768 && sidebar && sidebarOverlay) {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('show');
+        }
+    }
 
     // --- Core UI Helpers ---
 
@@ -108,7 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const li = document.createElement('li');
             li.className = `chat-item ${chat.id === currentChatId ? 'active' : ''}`;
             li.textContent = chat.title;
-            li.addEventListener('click', () => loadChatSession(chat.id));
+            li.addEventListener('click', () => {
+                loadChatSession(chat.id);
+                closeSidebarOnMobile();
+            });
             chatListContainer.appendChild(li);
         });
     }
@@ -126,12 +150,16 @@ document.addEventListener('DOMContentLoaded', () => {
             li.className = 'chat-item active';
             li.textContent = data.title;
             li.setAttribute("data-id", data.id);
-            li.addEventListener('click', () => loadChatSession(data.id));
+            li.addEventListener('click', () => {
+                loadChatSession(data.id);
+                closeSidebarOnMobile();
+            });
             
             updateSidebarActiveState();
             chatListContainer.appendChild(li);
             
             switchChatView(data.id, data.title, [], 0);
+            closeSidebarOnMobile();
         } catch (e) { console.error(e); }
     }
 
@@ -173,7 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const li = document.createElement('li');
             li.className = `chat-item ${chat.id === currentChatId ? 'active' : ''}`;
             li.textContent = chat.title;
-            li.addEventListener('click', () => loadChatSession(chat.id));
+            li.addEventListener('click', () => {
+                loadChatSession(chat.id);
+                closeSidebarOnMobile();
+            });
             chatListContainer.appendChild(li);
         });
     }

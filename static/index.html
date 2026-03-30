@@ -12,9 +12,9 @@
 </head>
 <body>
     <div class="app-container">
-        
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
         <!-- Sidebar -->
-        <aside class="sidebar glass-panel">
+        <aside id="sidebar" class="sidebar glass-panel">
             <div class="sidebar-header">
                 <h2>BBBot</h2>
                 <button id="new-chat-btn" class="new-chat-btn">+ New Chat</button>
@@ -33,6 +33,9 @@
             
             <!-- Header -->
             <header class="chat-header">
+                <button id="menu-btn" class="menu-btn mobile-only">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
                 <div class="ai-avatar">BB</div>
                 <div class="header-info">
                     <h1 id="current-chat-title">Loading...</h1>
