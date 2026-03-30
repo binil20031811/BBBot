@@ -1,0 +1,6 @@
+google-genai
+tiktoken
+python-dotenv
+fastapi
+uvicorn
+pymongo

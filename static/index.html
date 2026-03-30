@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBBot</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="sidebar-header">
+                <h2>BBBot</h2>
+                <button id="new-chat-btn" class="new-chat-btn">+ New Chat</button>
+            </div>
+            
+            <div class="sidebar-content">
+                <h3 class="section-title">Previous Chats</h3>
+                <ul id="chat-list" class="chat-list">
+                    <!-- Dynamic chat items injected here -->
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Chat UI Glass Container -->
+        <main class="chat-wrapper glass-panel">
+            
+            <!-- Header -->
+            <header class="chat-header">
+                <div class="ai-avatar">BB</div>
+                <div class="header-info">
+                    <h1 id="current-chat-title">Loading...</h1>
+                    <span class="status"><span class="status-dot"></span> Online</span>
+                </div>
+            </header>
+
+            <!-- Chat Area -->
+            <div id="chat-history" class="chat-history">
+                <!-- Messages injected here -->
+            </div>
+
+            <!-- Input Area -->
+            <footer class="chat-input-area">
+                <div class="input-glass">
+                    <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" disabled/>
+                    <button id="send-btn" class="send-btn" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
